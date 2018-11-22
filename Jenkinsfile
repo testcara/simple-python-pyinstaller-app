@@ -21,7 +21,9 @@ pipeline {
                 sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
             }
             post {
-                junit 'test-reports/results.xml'
+                always {
+                    junit 'test-reports/results.xml'
+                }
             }
         }
 
